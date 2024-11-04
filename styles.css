@@ -77,12 +77,12 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 7rem;
 }
 
 .product-item img {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -92,4 +92,27 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+}
+.welcome-photo {
+    width: 900px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+.welcome-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Space between text and image */
+}
+.return-home {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #f8b400; /* Example background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.return-home:hover {
+    background-color: #e09e00; /* Darker shade on hover */
 }

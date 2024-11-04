@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Bag</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Bag</h1>
+        <a href="index.html" class="return-home">Return to Home</a>
+    </header>
+    <section id="item-details">
+        <!-- Dynamically populated content -->
+    </section>
+    <footer>
+        <p>&copy; 2024 Cakery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemName = urlParams.get('item');
+        const itemImage = urlParams.get('image');
+        const itemPrice = parseFloat(urlParams.get('price'));
+
+        const itemDetailsSection = document.getElementById('item-details');
+
+        if (itemName && itemImage && !isNaN(itemPrice)) {
+            itemDetailsSection.innerHTML = `
+                <h2>Selected Item: ${itemName.replace(/-/g, ' ').toUpperCase()}</h2>
+                <img src="${itemImage}" alt="${itemName}" id="item-image" style="width:200px;height:auto;">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                
+                <h3>Choose Delivery Option:</h3>
+                <label>
+                    <input type="radio" name="delivery" value="pickup" checked> Pickup
+                </label>
+                <label>
+                    <input type="radio" name="delivery" value="delivery"> Delivery
+                </label>
+
+                <h3>Price: $${itemPrice.toFixed(2)} each</h3>
+                <p>Total: <span id="total-price">$${itemPrice.toFixed(2)}</span></p>
+
+                <button id="checkout-btn">Proceed to Checkout</button>
+            `;
+
+            const quantityInput = document.getElementById('quantity');
+            const totalPrice = document.getElementById('total-price');
+
+            quantityInput.addEventListener('input', () => {
+                const quantity = quantityInput.value;
+                totalPrice.innerText = `$${(quantity * itemPrice).toFixed(2)}`;
+            });
+
+            document.getElementById('checkout-btn').addEventListener('click', () => {
+                const selectedDelivery = document.querySelector('input[name="delivery"]:checked').value;
+                const quantity = quantityInput.value;
+                localStorage.setItem('selectedQuantity', quantity);
+                localStorage.setItem('selectedDelivery', selectedDelivery);
+                localStorage.setItem('itemImage', itemImage); // Store image path
+                window.location.href = 'checkout.html'; // Redirect to checkout page
+            });
+        } else {
+            itemDetailsSection.innerHTML = '<p>Error: No item selected.</p>';
+        }
+    </script>
+</body>
+</html>
