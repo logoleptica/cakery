@@ -154,6 +154,11 @@ h2 {
     object-fit: cover;
     display: block;
 }
+.medium-image {
+    width: 35vh; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent overflow */
+}
 
 /* Footer */
 footer {
