@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakery</title>
+    <title>Munamii Cakery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">Cakery</a>
+            <h1>Munamii Cakery</h1>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -22,18 +22,28 @@
         </nav>
     </header>
 
-    <!-- Welcome Section -->
-    <section id="home" class="welcome">
-        <h1>Welcome to Cakery</h1>
-        <p>Hi! Welcome to Munamii Cakery! We offer you the most delicious cakes and cupcakes for all kinds of events and celebrations. Browse around to discover what you would like to buy.</p>
+ <!-- Welcome and About Section Wrapper -->
+<div class="welcome-about-wrapper">
+   
+    <div class="image">
         <img src="images/shanghai-5978060_640.webp" alt="Cakery Photo" class="welcome-photo">
-    </section>
-
-    <!-- About Section -->
+         <!-- Welcome Section -->
+    <div id="home" class="welcome">
+        <h1>Welcome to Cakery</h1>
+        <p>Hi! Welcome to Munamii Cakery! We offer you the most delicious cakes and cupcakes for all kinds of events and celebrations. 
+            Browse around to discover what you would like to buy.</p>
+              <!-- About Section -->
     <section id="about" class="about">
         <h2>About Us</h2>
         <p>At Munamii Cakery, each cake, each box of cupcakes that we make has a very special value for us. We not only want to bring a dessert to your table but rather a unique experience for you, which will become an unforgettable memory. We have been in the pastry market for more than 8 years and now we offer you a new way to shop through our website.</p>
     </section>
+    </div>
+
+    </div>
+
+  
+</div>
+
 
     <!-- Products Section -->
     <section id="products" class="products">
@@ -43,6 +53,7 @@
             <div class="product-list">
                 <!-- Cupcake items -->
                 <div class="product-item">
+                
                     <a href="add-to-bag.html?item=red-velvet&image=images/three-red-velvet-cupcakes-on-table.webp&price=3.00">
                         <img src="images/three-red-velvet-cupcakes-on-table.webp" alt="Red Velvet Cupcake">
                         <h4>Red Velvet Cupcake</h4>
@@ -58,7 +69,7 @@
                 </div>
                 <div class="product-item">
                     <a href="add-to-bag.html?item=fruit-tart&image=images/fruit-tart-vanilla-cupcakes1-flavorthemoments.com_-600x772.webp&price=3.00">
-                        <img src="images/fruit-tart-vanilla-cupcakes1-flavorthemoments.com_-600x772.webp" alt="Fruit Tart Cupcake">
+                        <img src="images/muffin-3510308_640.webp" alt="Fruit Tart Cupcake">
                         <h4>Fruit Tart Cupcake</h4>
                         <p>$3.00</p>
                     </a>
@@ -153,6 +164,14 @@
                         <p>$150.00</p>
                     </a>
                 </div>
+                 <div class="product-item">
+    <a href="add-to-bag.html?item=cream-cake&image=images/tall-pink-and-white-cake.webp&price=150.00">
+        <img src="images/tall-pink-and-white-cake.webp" alt="Cream Cake">
+        <h4>Cream Cake</h4>
+        <p>$150.00</p>
+    </a>
+</div>
+
             </div>
         </div>
     </section>
