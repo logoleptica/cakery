@@ -7,55 +7,90 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header> <!--Navbar-->
         <nav class="navbar">
-            <h1>Munamii Cakery</h1>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Munamii Cakery Logo" class="logo-image"> 
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="index.html">Products</a></li>
+                <li><a href="add-to-bag.html">Shopping Bag</a></li>
                 <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="add-to-bag">
-        <h2>Your Selected Item</h2>
-        <div id="item-details">
-<img id="item-image" class="medium-image" src="" alt="Product Image">
-            <h3 id="item-name"></h3>
-            <p id="item-price"></p>
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" value="1">
+    <main>
+        <section id="add-to-bag">
+            <div class="add-to-bag-container">
+                <h3>Your Shopping Bag</h3>
+
+                <!-- Display Bag items Section -->
+                <div id="bag-items" class="bag-items-container">
+                    <!-- Items will be dynamically added here -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Checkout Button (Initially Hidden) -->
+        <div id="checkout-button-container" style="display: none;">
+            <button id="checkout-button" onclick="location.href='checkout.html'">Proceed to Checkout</button>
         </div>
-        <button id="add-to-bag-button">Add to Bag</button>
-        <button id="return-button" onclick="window.location.href='index.html'">Return to Shopping</button>
-    </section>
-
-    <script>
-        // Function to extract URL parameters
-        function getUrlParameters() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                item: params.get('item'),
-                image: params.get('image'),
-                price: params.get('price'),
-            };
-        }
-
-        // Display the item details on the page
-        function displayItemDetails() {
-            const { item, image, price } = getUrlParameters();
-            document.getElementById('item-name').textContent = item;
-            document.getElementById('item-image').src = image;
-            document.getElementById('item-price').textContent = `Price: ${price}`;
-        }
-
-        // Call the function to display item details on load
-        displayItemDetails();
-    </script>
+    </main>
 
     <footer>
         <p>&copy; 2024 Munamii Cakery. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Function to display items in the bag
+        function displayBagItems() {
+            const bag = JSON.parse(localStorage.getItem('bag')) || [];
+            const bagContainer = document.getElementById('bag-items');
+            const checkoutButtonContainer = document.getElementById('checkout-button-container');
+
+            // If the bag is empty, show a message
+            if (bag.length === 0) {
+                bagContainer.innerHTML = "<p>No items added yet.</p>";
+                checkoutButtonContainer.style.display = 'none'; // Hide checkout button
+                return;
+            }
+
+            // If there are items, display them
+            bagContainer.innerHTML = ''; // Clear previous items
+            bag.forEach(({ item, image, price, quantity }) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add("bag-item");
+                itemElement.innerHTML = `
+                    <img src="${image}" alt="${item}" class="bag-item-image">
+                    <p><strong>Item:</strong> ${item}</p>
+                    <p><strong>Price:</strong> ${price}</p>
+                    <p><strong>Quantity:</strong> ${quantity}</p>
+                `;
+                bagContainer.appendChild(itemElement);
+            });
+
+            // Show the checkout button when there are items in the bag
+            checkoutButtonContainer.style.display = 'block';
+        }
+
+        // Call the function to display the bag items when the page loads
+        window.onload = displayBagItems;
+
+        // Example function to add an item to the bag (for demonstration purposes)
+        function addItemToBag(item, image, price, quantity) {
+            const bag = JSON.parse(localStorage.getItem('bag')) || [];
+            bag.push({ item, image, price, quantity });
+            localStorage.setItem('bag', JSON.stringify(bag));
+        }
+
+    </script>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </body>
 </html>
