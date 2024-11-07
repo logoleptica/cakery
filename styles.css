@@ -100,6 +100,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: auto;
 }
 
 /* Section Titles */
@@ -170,7 +172,6 @@ h2 {
     max-width: 100%; /* Prevent overflow */
 }
 
-/* Checkout Button Styles */
 .checkout-container{
     display: flex;
     justify-content: center;
