@@ -81,12 +81,6 @@
         // Call the function to display the bag items when page loads
         window.onload = displayBagItems;
 
-        // Example function to add an item to the bag (for demonstration purposes)
-        function addItemToBag(item, image, price, quantity) {
-            const bag = JSON.parse(localStorage.getItem('bag')) || [];
-            bag.push({ item, image, price, quantity });
-            localStorage.setItem('bag', JSON.stringify(bag));
-        }
 
     </script>
 
