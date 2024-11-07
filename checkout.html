@@ -1,56 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Munamii Cakery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <header>
-            <link rel="stylesheet" href="styles.css">
-
+     <header>
         <nav class="navbar">
-            <h1>Munamii Cakery</h1>
+            <div class="logo-container">
+            <img src="images/logo.png" alt="Munamii Cakery Logo" class="logo-image"> 
+        </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html">About</a></li>
                 <li><a href="index.html">Products</a></li>
                 <li><a href="add-to-bag.html">Shopping Bag</a></li>
                 <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="checkout-details">
-        <h2>Your Shopping Bag</h2>
-        <div id="items-list"></div>
-        <button id="confirm-order-btn">Confirm Order</button>
-    </section>
+    <main>
+        <section id="checkout">
+            <div class="checkout-container">
+                <!-- Checkout Form on the Left -->
+                <div class="checkout-form-container">
+                    <h3>Checkout Information</h3>
+                    <form id="checkout-form">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
 
-    <footer>
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="card">Card Information:</label>
+                        <input type="text" id="card" name="card" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+                        <label for="comments">Order Comments:</label>
+                        <textarea id="comments" name="comments" rows="4" placeholder="Any special requests?"></textarea>
+
+                        <button type="submit">Complete Purchase</button>
+                    </form>
+                </div>
+
+                <!-- Bag Items (Image) on the Right -->
+                <div id="bag-items" class="bag-items-container">
+                    <!-- Items will be loaded added here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+  
+    <script>
+      
+       // Function to calculate and display the total
+function calculateTotal() {
+    const bag = JSON.parse(localStorage.getItem('bag')) || [];
+    let total = 0;
+
+    bag.forEach(({ price, quantity }) => {
+        total += parseFloat(price) * (quantity || 1); // Assuming price is a string; parse it to a number
+    });
+
+    const totalContainer = document.createElement('div');
+    totalContainer.innerHTML = `<p><strong>Total:</strong> $${total.toFixed(2)}</p>`;
+    document.getElementById('bag-items').appendChild(totalContainer);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayBagItems();
+    calculateTotal();
+});
+function completePurchase(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    // Additional confirmation message
+    document.getElementById('bag-items').innerHTML = `<p>Thank you, ${name}! Your order has been placed successfully.</p>`;
+    localStorage.removeItem('bag');
+    document.getElementById('checkout-form').reset();
+    alert("Order completed. Check your email for confirmation.");
+}
+document.getElementById('checkout-form').addEventListener('submit', completePurchase);
+
+    </script>
+</body>
+  <footer>
         <p>&copy; 2024 Munamii Cakery. All rights reserved.</p>
     </footer>
 
-    <script>
-        const itemsList = document.getElementById('items-list');
-        const shoppingBag = JSON.parse(localStorage.getItem('shoppingBag')) || [];
-
-        if (shoppingBag.length > 0) {
-            shoppingBag.forEach(item => {
-                itemsList.innerHTML += `
-                    <div class="item">
-                        <img src="${item.image}" alt="${item.name}" style="width:100px;height:auto;">
-                        <h3>${item.name.replace(/-/g, ' ')}</h3>
-                        <p>Price: $${item.price.toFixed(2)} each</p>
-                        <p>Quantity: ${item.quantity}</p>
-                        <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
-                        <p>Delivery Option: ${item.delivery}</p>
-                    </div>
-                `;
-            });
-        } else {
-            itemsList.innerHTML = '<p>Your bag is empty.</p>';
-        }
-
-        document.getElementById('confirm-order-btn').addEventListener('click', () => {
-            // Handle order confirmation logic here
-            alert('Order confirmed! Thank you for shopping with us!');
-            localStorage.removeItem('shoppingBag'); // Clear the bag after confirming
-            window.location.href = 'index.html'; // Redirect to home page
-        });
-    </script>
-</body>
+</html>
