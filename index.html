@@ -3,201 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Munamii Cakery</title>
+    <title>Sweet Delights Cakery</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <!-- Navigation Bar -->
     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-            <img src="images/logo.png" alt="Munamii Cakery Logo" class="logo-image"> 
-        </div>
+        <nav class="container">
+            <div class="logo">Sweet Delights</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#cakes">Cakes</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="add-to-bag.html">Shopping Bag</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
- <!-- Welcome and About Section Wrapper -->
+    <main>
+        
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Indulge in Sweet Perfection</h1>
+                <p>Handcrafted cakes for every occasion</p>
+                <a href="#cakes" class="btn">Explore Our Cakes</a>
+            </div>
+        </section>
 <div class="welcome-about-wrapper">
-   
-    <div class="image">
-        <img src="images/shanghai-5978060_640.webp" alt="Cakery Photo" class="welcome-photo">
-         <!-- Welcome Section -->
-    <div id="home" class="welcome">
-        <h1>Welcome to Munamii Cakery</h1>
-        <p>Hi! Welcome to Munamii Cakery! We offer you the most delicious cakes and cupcakes for all kinds of events and celebrations. 
-            Browse around to discover what you would like to buy.</p>
-              <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>At Munamii Cakery, each cake, each box of cupcakes that we make has a very special value for us. We not only want to bring a dessert to your table but rather a unique experience for you, which will become an unforgettable memory. We have been in the pastry market for more than 8 years and now we offer you a new way to shop through our website.</p>
-    </section>
-    </div>
-
-    </div>
-
-  
-</div>
-
-
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <h2>Our Products</h2>
-        <div class="product-category">
-            <h3>Cupcakes</h3>
-            <div class="product-list">
-                <!-- Cupcake items -->
-                 <div class="product-item">
-                    <a href="add-to-bag.html?item=three-cupcakes&image=images/three-cupcakes.webp&price=9.00">
-                        <img src="images/three-cupcakes.webp" alt="Three Cupcakes">
-                        <h4>Three Cupcakes</h4>
-                        <p>$9.00</p>
-                    </a>
+        <div class="container">
+            <div class="image">
+                <img src="images/shanghai-5978060_640.webp" alt="Munamii Cakery Showcase" class="welcome-photo">
+            </div>
+            <div class="content">
+                <!-- Welcome Section -->
+                <div id="home" class="welcome">
+                    <h1>Welcome to Munamii Cakery</h1>
+                    <p>Hi! Welcome to Munamii Cakery! We offer you the most delicious cakes and cupcakes for all kinds of events and celebrations. Browse around to discover what you would like to buy.</p>
                 </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=holiday-cupcake&image=images/christmas-cupcakes.webp&price=3.00">
-                        <img src="images/christmas-cupcakes.webp" alt="Holiday Cupcake">
-                        <h4>Holiday Cupcake</h4>
-                        <p>$3.00</p>
-                    </a>
-                </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=dozen-cupcakes&image=images/cupcakes.jpg&price=20.00">
-                        <img src="images/cupcakes.jpg" alt="The Dozen Cupcakes">
-                        <h4>The Dozen Cupcakes</h4>
-                        <p>$20.00</p>
-                    </a>
-                </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=three-cupcakes&image=images/three-cupcakes.webp&price=9.00">
-                        <img src="images/three-cupcakes.webp" alt="Three Cupcakes">
-                        <h4>Three Cupcakes</h4>
-                        <p>$9.00</p>
-                    </a>
-                </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=holiday-cupcake&image=images/christmas-cupcakes.webp&price=3.00">
-                        <img src="images/christmas-cupcakes.webp" alt="Holiday Cupcake">
-                        <h4>Holiday Cupcake</h4>
-                        <p>$3.00</p>
-                    </a>
-                </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=dozen-cupcakes&image=images/cupcakes.jpg&price=20.00">
-                        <img src="images/cupcakes.jpg" alt="The Dozen Cupcakes">
-                        <h4>The Dozen Cupcakes</h4>
-                        <p>$20.00</p>
-                    </a>
-                </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=dark-chocolate&image=images/moist-chocolate-cupcakes-3.webp&price=3.00">
-                        <img src="images/moist-chocolate-cupcakes-3.webp" alt="Dark Chocolate Cupcake">
-                        <h4>Dark Chocolate Cupcake</h4>
-                        <p>$3.00</p>
-                    </a>
-                </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=buttercream&image=images/buttercream.webp&price=3.00">
-                        <img src="images/buttercream.webp" alt="Buttercream Cupcake">
-                        <h4>Buttercream Cupcake</h4>
-                        <p>$3.00</p>
-                    </a>
-                </div>
+                
+                <!-- About Section -->
+                <section id="about" class="about">
+                    <h2>About Us</h2>
+                    <p>At Munamii Cakery, each cake, each box of cupcakes that we make has a very special value for us. We not only want to bring a dessert to your table but rather a unique experience for you, which will become an unforgettable memory. We have been in the pastry market for more than 8 years and now we offer you a new way to shop through our website.</p>
+                </section>
             </div>
         </div>
-        <div class="product-category">
-            <h3>Wedding Cakes</h3>
-            <div class="product-list">
-                <!-- Wedding cake items -->
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=black-forest&image=images/black-forest-cake.webp&price=30.00">
-                        <img src="images/black-forest-cake.webp" alt="Black Forest Cake">
-                        <h4>Black Forest Cake</h4>
-                        <p>$30.00</p>
-                    </a>
+    </div>
+        <section class="featured-cakes container" id="cakes">
+            <h2>Our Signature Cakes</h2>
+            <div class="cake-grid">
+                <div class="cake-item">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Chocolate Delight">
+                    <div class="cake-info">
+                        <h3>Chocolate Delight</h3>
+                        <p>Rich, moist chocolate cake with ganache</p>
+                    </div>
                 </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=graham-cracker&image=images/cakes.jpg&price=15.00">
-                        <img src="images/cakes.jpg" alt="Graham Cracker Cake">
-                        <h4>Graham Cracker Cake</h4>
-                        <p>$15.00</p>
-                    </a>
+                <div class="cake-item">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Strawberry Dream">
+                    <div class="cake-info">
+                        <h3>Strawberry Dream</h3>
+                        <p>Light sponge cake with fresh strawberries</p>
+                    </div>
                 </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=chocolate-orange&image=images/chocolate-and-orange-cake.webp&price=35.00">
-                        <img src="images/chocolate-and-orange-cake.webp" alt="Chocolate Orange Cake">
-                        <h4>Chocolate Orange Cake</h4>
-                        <p>$35.00</p>
-                    </a>
+                <div class="cake-item">
+                    <img src="https://images.unsplash.com/photo-1534766555764-ce878a5e3a2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lemon Zest">
+                    <div class="cake-info">
+                        <h3>Lemon Zest</h3>
+                        <p>Tangy lemon cake with cream cheese frosting</p>
+                    </div>
                 </div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=carrot&image=images/healthy-homemade-carrot-cake.webp&price=20.00">
-                        <img src="images/healthy-homemade-carrot-cake.webp" alt="Carrot Cake">
-                        <h4>Carrot Cake</h4>
-                        <p>$20.00</p>
-                    </a>
+                <div class="cake-item">
+                    <img src="images/white-cake-with-fruit-cherry-fruit.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>White Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
                 </div>
-                      <div class="product-item">
-                    <a href="add-to-bag.html?item=fruit-cream&image=images/plate-of-fruit-and-cream-cake.webp&price=35.00">
-                        <img src="images/plate-of-fruit-and-cream-cake.webp" alt="Fruit Cream Cake">
-                        <h4>Fruit Cream Cake</h4>
-                        <p>$35.00</p>
-                    </a>
+                    <div class="cake-item">
+                    <img src="images/black-forest-cake.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Dark Forest Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
                 </div>
-                 <div class="product-item">
-    <a href="add-to-bag.html?item=cream-cake&image=images/tall-pink-and-white-cake.webp&price=50.00">
-        <img src="images/tall-pink-and-white-cake.webp" alt="Cream Cake">
-        <h4>Cream Cake</h4>
-        <p>$50.00</p>
-    </a>
-</div>
-                <div class="product-item">
-                    <a href="add-to-bag.html?item=fruit-cream&image=images/plate-of-fruit-and-cream-cake.webp&price=35.00">
-                        <img src="images/plate-of-fruit-and-cream-cake.webp" alt="Fruit Cream Cake">
-                        <h4>Fruit Cream Cake</h4>
-                        <p>$35.00</p>
-                    </a>
+                    <div class="cake-item">
+                    <img src="images/sweet-homemade-dark-chocolate-layer-cake.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Dark Layers</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
                 </div>
-                 <div class="product-item">
-    <a href="add-to-bag.html?item=cream-cake&image=images/tall-pink-and-white-cake.webp&price=50.00">
-        <img src="images/tall-pink-and-white-cake.webp" alt="Cream Cake">
-        <h4>Cream Cake</h4>
-        <p>$50.00</p>
-    </a>
-</div>
-
+                    <div class="cake-item">
+                    <img src="images/hungarian-coffee-cake.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Hungarian Coffee Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
+                    <div class="cake-item">
+                    <img src="images/healthy-homemade-carrot-cake.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Carrot Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>Home delivery service: </p> <p>All the city of Stockholm and Malmo with
-            additional cost.</p>
-            <p>Place to pick up order:</p> 
-            <p> Via la Costa Avenue. Blue Port gated neighbourhood. We will
-            send you the GPS Location via WhatsApp. </p>
-<p>Orders must be placed 2 days before for greater security, processing and availability.</p>
-            Tuesday to Saturday 9 a.m. at 2 p.m.</p>
-        <p>Phone: +46 800 700 700</p>
-                       <a class="email-link" href="mailto:info@munamiicakery.com">info@munamiicakery.com</a> 
-                               <ul class="social-links">
-            <li><a href="https://www.instagram.com/munamii.cakery/">Instagram</a></li>
-            <li><a href="https://www.facebook.com/munamiicupcakes/">Facebook</a></li>
-        </ul>
-    </section>
-
-</body>
+        </section>
+        <section class="featured-cakes container" id="cakes">
+            <h2>Our Signature Cupcakes</h2>
+            <div class="cake-grid">
+                <div class="cake-item">
+                    <img src="images/buttercream.webp" alt="Chocolate Delight">
+                    <div class="cake-info">
+                        <h3>Buttercream</h3>
+                        <p>Rich, moist chocolate cake with ganache</p>
+                    </div>
+                </div>
+                <div class="cake-item">
+                    <img src="images/1-Earl-grey-cupcakes-with-lemon-buttercream-web.webp" alt="Strawberry Dream">
+                    <div class="cake-info">
+                        <h3>Earl Grey</h3>
+                        <p>Light sponge cake with fresh strawberries</p>
+                    </div>
+                </div>
+                <div class="cake-item">
+                    <img src="images/cupcakes.jpg" alt="Lemon Zest">
+                    <div class="cake-info">
+                        <h3>Lemon Zest</h3>
+                        <p>Tangy lemon cake with cream cheese frosting</p>
+                    </div>
+                </div>
+                <div class="cake-item">
+                    <img src="images/fruit-tart-vanilla-cupcakes1-flavorthemoments.com_-600x772.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>White Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
+                    <div class="cake-item">
+                    <img src="images/moist-chocolate-cupcakes-3.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Dark Forest Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
+                    <div class="cake-item">
+                    <img src="images/three-cupcakes.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Dark Layers</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
+                    <div class="cake-item">
+                    <img src="images/three-red-velvet-cupcakes-on-table.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Hungarian Coffee Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
+                    <div class="cake-item">
+                    <img src="images/pexels-photo-4109784.webp" alt="Red Velvet">
+                    <div class="cake-info">
+                        <h3>Carrot Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                    </div>      
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Munamii Cakery. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2023 Sweet Delights Cakery. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrollPosition = window.pageYOffset;
+            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
 </html>
