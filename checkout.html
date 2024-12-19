@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Munamii Cakery</title>
+    <title>Sweet Delights Cakery</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
-     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-            <img src="images/logo.png" alt="Munamii Cakery Logo" class="logo-image"> 
-        </div>
+    <header>
+        <nav class="container">
+            <div class="logo">Sweet Delights</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">About</a></li>
-                <li><a href="index.html">Products</a></li>
-                <li><a href="add-to-bag.html">Shopping Bag</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="index.html">Contact</a></li>
+                <li><a href="index.html">Cakes</a></li>
+                 <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
     </header>
 
+    <main>
     <main>
         <section id="checkout">
             <div class="checkout-container">
@@ -48,50 +49,68 @@
 
                 <!-- Bag Items (Image) on the Right -->
                 <div id="bag-items" class="bag-items-container">
-                    <!-- Items will be loaded added here -->
+                    <!-- Items will be loaded here -->
                 </div>
             </div>
         </section>
     </main>
 
-  
-    <script>
-      
-       // Function to calculate and display the total
-function calculateTotal() {
-    const bag = JSON.parse(localStorage.getItem('bag')) || [];
-    let total = 0;
-
-    bag.forEach(({ price, quantity }) => {
-        total += parseFloat(price) * (quantity || 1); // Assuming price is a string; parse it to a number
-    });
-
-    const totalContainer = document.createElement('div');
-    totalContainer.innerHTML = `<p><strong>Total:</strong> $${total.toFixed(2)}</p>`;
-    document.getElementById('bag-items').appendChild(totalContainer);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    displayBagItems();
-    calculateTotal();
-});
-function completePurchase(event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-
-    // Additional confirmation message
-    document.getElementById('bag-items').innerHTML = `<p>Thank you, ${name}! Your order has been placed successfully.</p>`;
-    localStorage.removeItem('bag');
-    document.getElementById('checkout-form').reset();
-    alert("Order completed. Check your email for confirmation.");
-}
-document.getElementById('checkout-form').addEventListener('submit', completePurchase);
-
-    </script>
-</body>
-  <footer>
+    <footer>
         <p>&copy; 2024 Munamii Cakery. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Function to display bag items
+        function displayBagItems() {
+            const bag = JSON.parse(localStorage.getItem('bag')) || [];
+            const bagItemsContainer = document.getElementById('bag-items');
+
+            if (bag.length === 0) {
+                bagItemsContainer.innerHTML = "<p>Your shopping bag is empty.</p>";
+                return;
+            }
+
+            bag.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+                bagItemsContainer.appendChild(itemDiv);
+            });
+        }
+
+        // Function to calculate and display the total
+        function calculateTotal() {
+            const bag = JSON.parse(localStorage.getItem('bag')) || [];
+            let total = 0;
+
+            bag.forEach(({ price, quantity }) => {
+                total += parseFloat(price) * (quantity || 1); // Assuming price is a string; parse it to a number
+            });
+
+            const totalContainer = document.createElement('div');
+            totalContainer.innerHTML = `<p><strong>Total:</strong> $${total.toFixed(2)}</p>`;
+            document.getElementById('bag-items').appendChild(totalContainer);
+        }
+
+        // Function to handle form submission
+        function completePurchase(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Confirmation message
+            document.getElementById('bag-items').innerHTML = `<p>Thank you, ${name}! Your order has been placed successfully.</p>`;
+            localStorage.removeItem('bag');
+            document.getElementById('checkout-form').reset();
+            alert("Order completed. Check your email for confirmation.");
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            displayBagItems();
+            calculateTotal();
+        });
+        
+        document.getElementById('checkout-form').addEventListener('submit', completePurchase);
+    </script>
+</body>
 </html>
