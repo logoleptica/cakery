@@ -3,53 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Delights Cakery</title>
+    <title>Checkout - Munamii Cakery</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <header>
-        <nav class="container">
+               <nav class="container">
+
+
             <div class="logo">Sweet Delights</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+            <ul>
+                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html">Cakes</a></li>
                  <li><a href="checkout.html">Checkout</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html">Cart</a></li>
+                <li><a href="add-to-bag.html">Cart</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-    <main>
         <section id="checkout">
+            <h2>Checkout</h2>
             <div class="checkout-container">
-                <!-- Checkout Form on the Left -->
-                <div class="checkout-form-container">
-                    <h3>Checkout Information</h3>
-                    <form id="checkout-form">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <label for="email">Email Address:</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="card">Card Information:</label>
-                        <input type="text" id="card" name="card" placeholder="XXXX-XXXX-XXXX-XXXX" required>
-
-                        <label for="comments">Order Comments:</label>
-                        <textarea id="comments" name="comments" rows="4" placeholder="Any special requests?"></textarea>
-
-                        <button type="submit">Complete Purchase</button>
-                    </form>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items"></div>
+                    <div id="checkout-total"></div>
                 </div>
+                <div class="checkout-form">
+                    <h3>Payment Details</h3>
+                    <form id="payment-form">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" required>
 
-                <!-- Bag Items (Image) on the Right -->
-                <div id="bag-items" class="bag-items-container">
-                    <!-- Items will be loaded here -->
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+
+                        <label for="address">Delivery Address:</label>
+                        <textarea id="address" required></textarea>
+
+                        <label for="card">Card Number:</label>
+                        <input type="text" id="card" placeholder="XXXX XXXX XXXX XXXX" required>
+
+                        <label for="comments">Additional Notes:</label>
+                        <textarea id="comments"></textarea>
+
+                        <button type="submit">Place Order</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -59,58 +61,6 @@
         <p>&copy; 2024 Munamii Cakery. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Function to display bag items
-        function displayBagItems() {
-            const bag = JSON.parse(localStorage.getItem('bag')) || [];
-            const bagItemsContainer = document.getElementById('bag-items');
-
-            if (bag.length === 0) {
-                bagItemsContainer.innerHTML = "<p>Your shopping bag is empty.</p>";
-                return;
-            }
-
-            bag.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
-                bagItemsContainer.appendChild(itemDiv);
-            });
-        }
-
-        // Function to calculate and display the total
-        function calculateTotal() {
-            const bag = JSON.parse(localStorage.getItem('bag')) || [];
-            let total = 0;
-
-            bag.forEach(({ price, quantity }) => {
-                total += parseFloat(price) * (quantity || 1); // Assuming price is a string; parse it to a number
-            });
-
-            const totalContainer = document.createElement('div');
-            totalContainer.innerHTML = `<p><strong>Total:</strong> $${total.toFixed(2)}</p>`;
-            document.getElementById('bag-items').appendChild(totalContainer);
-        }
-
-        // Function to handle form submission
-        function completePurchase(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-
-            // Confirmation message
-            document.getElementById('bag-items').innerHTML = `<p>Thank you, ${name}! Your order has been placed successfully.</p>`;
-            localStorage.removeItem('bag');
-            document.getElementById('checkout-form').reset();
-            alert("Order completed. Check your email for confirmation.");
-        }
-
-        // Event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            displayBagItems();
-            calculateTotal();
-        });
-        
-        document.getElementById('checkout-form').addEventListener('submit', completePurchase);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
